@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+  image-rendering: pixelated; /* Para sprites nítidos */
+}
+
+body {
+  background: #1a1a2e;
+  font-family: 'Press Start 2P', monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 10px;
+  color: #eee;
+}
+
+/* Painel superior */
+#topPanel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: #0f0f1f;
+  border: 4px solid #ffd700;
+  padding: 8px 16px;
+  width: 100%;
+  max-width: 920px;
+  margin-bottom: 12px;
+  box-shadow: inset 0 0 0 2px #2a2a4a, 0 0 20px #ffd70033;
+}
+.stat {
+  font-size: 0.7rem;
+  padding: 4px 12px;
+  background: #1a1a2e;
+  border: 2px solid #ffd70088;
+  color: #ddd;
+}
+.stat span { color: #ffd700; }
+
+/* Área do jogo */
+#gameArea {
+  position: relative;
+  background: #0f0f1f;
+  border: 4px solid #ffd700;
+  box-shadow: inset 0 0 0 2px #2a2a4a, 0 0 40px #ffd70044;
+  width: 100%;
+  max-width: 920px;
+}
+#gameCanvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #3d8b40; /* grama base */
+  image-rendering: pixelated;
+}
+
+/* Overlay */
+#overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #ffd700;
+}
+#overlay.hidden { display: none; }
+#overlayContent {
+  background: #0f0f1f;
+  padding: 30px 40px;
+  border: 4px solid #ffd700;
+  text-align: center;
+  max-width: 90%;
+}
+#overlayContent h1 {
+  font-size: 1.8rem;
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+#overlayContent p {
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+#overlayBtn {
+  background: #ffd700;
+  border: 4px solid #fff;
+  padding: 10px 30px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #0f0f1f;
+  cursor: pointer;
+  transition: 0.1s;
+}
+#overlayBtn:hover { background: #ffe44d; transform: scale(1.02); }
+
+/* Painel inferior */
+#bottomPanel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 10px;
+  background: #0f0f1f;
+  border: 4px solid #ffd700;
+  padding: 10px 12px;
+  width: 100%;
+  max-width: 920px;
+  margin-top: 12px;
+}
+#bottomPanel button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.55rem;
+  background: #1a1a2e;
+  border: 3px solid #ffd70088;
+  color: #eee;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: 0.1s;
+  text-shadow: 0 0 4px #000;
+}
+#bottomPanel button:hover:not(:disabled) {
+  background: #ffd700;
+  color: #0f0f1f;
+  border-color: #fff;
+}
+#bottomPanel button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+#controlSection button { border-color: #ff6b6b; }
+#controlSection button:hover:not(:disabled) { background: #ff6b6b; color: #fff; }
+
+/* Responsivo */
+@media (max-width: 700px) {
+  #topPanel .stat { font-size: 0.5rem; padding: 2px 6px; }
+  #bottomPanel button { font-size: 0.4rem; padding: 4px 8px; }
+}
